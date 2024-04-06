@@ -14,9 +14,10 @@ You can install this package by running: ``npm install simo-package@latest``
 ![Stars](https://img.shields.io/github/stars/sonosimooo/simo-package) 
 ![Downloads](https://img.shields.io/npm/d18m/simo-package) 
 
-
+----------------
 
 ## Functions
 
-
+log =>
+calc =>
 
