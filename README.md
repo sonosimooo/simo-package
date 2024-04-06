@@ -1,15 +1,14 @@
 # Simo Package
 
-This multifunctional package avoids importing too many packages.
-=> <=
+A multifunctional package that avoid importing too many packages.
 
-## Install
+
 
-You can install this package by running: npm install simo-package@latest
+You can install this package by running: ``npm install simo-package@latest``
 
--------------
+----------------
 
-# Functions:
+## Functions
 
-Read the file "functions.txt"
+
 
