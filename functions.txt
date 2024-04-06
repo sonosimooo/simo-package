@@ -1,6 +1,6 @@
 FUNCTIONS
 
-Latest: 0.1.0 >> 
+Latest: 0.1.2 >> 
 - log("text", addParentheses[False / True]) => Print in console
 
 
