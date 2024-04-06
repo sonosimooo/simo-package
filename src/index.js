@@ -1,4 +1,3 @@
-// index.js
 const fs = require('fs');
 const path = require('path');
 const SerialPort = require('serialport'); 
@@ -73,6 +72,8 @@ function renameFile(oldFileName, newFileName, folderPath) {
   fs.renameSync(oldFilePath, newFilePath);
 }
 
+
+
 function communicateWithArduino(dataToSend, serialPort) {
   const port = new SerialPort(serialPort, { baudRate: 9600 }); // Utilizza la porta seriale specificata dall'utente
 
@@ -95,6 +96,8 @@ function writeInFile(filePath, data) {
     }
   });
 }
+
+
 
 function load(templateName) {
   // Percorso del file template

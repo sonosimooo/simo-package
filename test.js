@@ -1,3 +1,3 @@
-const { load } = require('simo-package');
+const { log } = require('simo-package');
 
-load('template1');
+log("ciao")
