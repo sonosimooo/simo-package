@@ -121,6 +121,19 @@ function load(templateName) {
   return `File "${templateName}.js" creato sul desktop`;
 }
 
+async function ping(host) {
+  try {
+    const response = await ping.promise.probe(host);
+    if (response.alive) {
+      return response.time;
+    } else {
+      throw new Error('Host non raggiungibile');
+    }
+  } catch (error) {
+    throw new Error('Errore durante il ping:', error);
+  }
+}
+
 
 
 module.exports = {
