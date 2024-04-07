@@ -1,6 +1,6 @@
 {
   "name": "simo-package",
-  "version": "0.1.3",
+  "version": "0.1.5",
   "description": "A multifunctional package. Made by Simo and x2loreeh",
   "main": "src/index.js",
   "scripts": {
