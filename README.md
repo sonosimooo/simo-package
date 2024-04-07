@@ -2,7 +2,8 @@
 
 A multifunctional package that avoid importing too many packages.
 
-
+
+
 
 You can install this package by running: ``npm install simo-package@latest``
 
@@ -35,5 +36,9 @@ removefile -> Delete a file directly from your workspace
 renamefile -> Rename a specific file directly from your workspace
 
 communicatewitharduino -> Communicate with your inventions in Arduino through our package! 
+
+load -> Load a specific template created by yourself
+
+ping -> Get a host latency directly from your workspace
 
 
