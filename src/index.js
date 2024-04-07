@@ -72,8 +72,6 @@ function renameFile(oldFileName, newFileName, folderPath) {
   fs.renameSync(oldFilePath, newFilePath);
 }
 
-
-
 function communicateWithArduino(dataToSend, serialPort) {
   const port = new SerialPort(serialPort, { baudRate: 9600 }); // Utilizza la porta seriale specificata dall'utente
 
@@ -97,22 +95,24 @@ function writeInFile(filePath, data) {
   });
 }
 
-
-
 function load(templateName) {
-  // Percorso del file template
-  const templatePath = path.join(__dirname, 'templates', `${templateName}.js`);
+  let templateContent = '';
 
-  // Verifica se il file template esiste
-  if (!fs.existsSync(templatePath)) {
-    throw new Error(`Il template "${templateName}" non esiste.`);
+  // Determina il codice del template in base al nome
+  if (templateName === 'template1') {
+    templateContent = `
+      // Codice del template 1
+      console.log('Questo è il template 1');
+    `;
+  } else if (templateName === 'template2') {
+    templateContent = `
+      // Codice del template 2
+      console.log('Questo è il template 2');
+    `;
   }
 
-  // Leggi il contenuto del file template
-  const templateContent = fs.readFileSync(templatePath, 'utf8');
-
   // Crea un nuovo file JavaScript sul desktop
-  const desktopPath = path.join(require('os').homedir(), 'Desktop');
+  const desktopPath = require('os').homedir(); // Percorso della directory Desktop
   const newFilePath = path.join(desktopPath, `${templateName}.js`);
 
   // Scrivi il contenuto del template nel nuovo file JavaScript
@@ -120,6 +120,7 @@ function load(templateName) {
 
   return `File "${templateName}.js" creato sul desktop`;
 }
+
 
 
 module.exports = {
