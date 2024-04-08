@@ -41,4 +41,9 @@ load -> Load a specific template created by yourself
 
 ping -> Get a host latency directly from your workspace
 
+-------------------------
+
+## Advancements
+
+8/04/2024 => 1k Downloads
 
