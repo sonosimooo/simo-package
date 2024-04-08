@@ -1,6 +1,6 @@
 FUNCTIONS
 
-Latest: 0.1.2 >> 
+Latest: 0.1.7 >> 
 - log("text", addParentheses[False / True]) => Print in console
 
 
@@ -133,3 +133,24 @@ load('template1');
 TEMPLATES AVAIBLE:
 
 - template1: a simple log.
+
+--------------------------------------
+
+- calc(num1, num2)
+
+Use:
+
+const simoPackage = require('simo-package');
+
+sum = simoPackage.calc(1, 5);
+simoPackage.log(sum)
+
+----------------------------------------
+
+- ping() >> Ping of the host.
+
+No examples are avaible.
+
+-----------------------------------------
+
+- email(receiver, content)
