@@ -17,6 +17,19 @@ You can install this package by running: ``npm install simo-package@latest``
 
 ----------------
 
+## How to setup a Workspace 
+
+### Requirements:
+
+![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white)  or   ![Sublime Text](https://img.shields.io/badge/sublime_text-%23575757.svg?style=for-the-badge&logo=sublime-text&logoColor=important)
+
+![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)  LATEST
+
+If you Use VSCODE you can open a terminal from your IDE, but if you use Sublime Text you have to open a terminal autonomously. 
+Then after doing this you have found the directory of the folder run ''npm i simo-package@latest'' and the create a JS file and start developing! 
+
+----------------
+
 ## Functions
 
 log -> Print a message in the console
