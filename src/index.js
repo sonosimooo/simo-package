@@ -1,3 +1,4 @@
+// index.js
 const fs = require('fs');
 const path = require('path');
 const SerialPort = require('serialport'); 
@@ -121,19 +122,27 @@ function load(templateName) {
   return `File "${templateName}.js" creato sul desktop`;
 }
 
+function calc(num1, num2) {
+  if (typeof num1 !== 'number' || typeof num2 !== 'number') {
+    throw new Error('Entrambi gli argomenti devono essere numeri');
+  }
+  
+  return num1 + num2;
+}
+
 async function ping(host) {
   try {
     const response = await ping.promise.probe(host);
-    if (response.alive) {
+    if(response.alive) {
       return response.time;
+
     } else {
-      throw new Error('Host non raggiungibile');
+      throw new Error('Host not found.')
     }
   } catch (error) {
-    throw new Error('Errore durante il ping:', error);
+    throw new Error('Error.')
   }
 }
-
 
 
 module.exports = {
@@ -147,5 +156,5 @@ module.exports = {
   communicateWithArduino,
   writeInFile,
   load,
-  ping
+  calc
 };
