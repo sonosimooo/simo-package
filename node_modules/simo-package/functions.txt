@@ -1,5 +1,8 @@
 FUNCTIONS
 
+
+
+
 Latest: 0.1.7 >> 
 - log("text", addParentheses[False / True]) => Print in console
 

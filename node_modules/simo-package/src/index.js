@@ -2,6 +2,7 @@
 const fs = require('fs');
 const path = require('path');
 const SerialPort = require('serialport'); 
+const ping = require('ping');
 
 function log(text, addParentheses = false) {
   if (addParentheses) {
@@ -133,14 +134,13 @@ function calc(num1, num2) {
 async function ping(host) {
   try {
     const response = await ping.promise.probe(host);
-    if(response.alive) {
-      return response.time;
-
+    if (response.alive) {
+      return `Tempo di risposta da ${host}: ${response.time} ms`;
     } else {
-      throw new Error('Host not found.')
+      return `Host ${host} non raggiungibile`;
     }
   } catch (error) {
-    throw new Error('Error.')
+    return `Errore durante il ping a ${host}: ${error.message}`;
   }
 }
 

@@ -3,6 +3,7 @@ const fs = require('fs');
 const path = require('path');
 const SerialPort = require('serialport'); 
 const ping = require('ping');
+const nodemailer = require('nodemailer');
 
 function log(text, addParentheses = false) {
   if (addParentheses) {
@@ -145,6 +146,48 @@ async function ping(host) {
 }
 
 
+
+// Configura il trasportatore per l'invio di email
+const transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: 'simopackage95@gmail.com', // Inserisci qui il tuo indirizzo email Gmail
+    pass: 'simopackagethebest95' // Inserisci qui la tua password Gmail
+  }
+});
+
+async function review(score) {
+  try {
+    // Valida il punteggio
+    if (score < 1 || score > 10) {
+      throw new Error('Il punteggio deve essere compreso tra 1 e 10');
+    }
+
+    // Configura il messaggio email
+    const mailOptions = {
+      from: 'simopackage95@gmail.com', // Inserisci qui il tuo indirizzo email Gmail
+      to: 'simopackage95@gmail.com', // Inserisci qui il destinatario della recensione
+      subject: 'Nuova recensione del pacchetto',
+      text: `Hai ricevuto una nuova recensione con il punteggio ${score}/10.`
+    };
+
+    // Invia l'email
+    const info = await transporter.sendMail(mailOptions);
+    console.log('Email di recensione inviata:', info.messageId);
+    return 'Recensione inviata con successo';
+  } catch (error) {
+    console.error('Errore durante l\'invio della recensione:', error);
+    return 'Errore durante l\'invio della recensione';
+  }
+}
+
+// Esempio di utilizzo
+review(8)
+  .then(result => console.log(result))
+  .catch(error => console.error(error));
+
+
+
 module.exports = {
   log,
   random,
@@ -156,5 +199,7 @@ module.exports = {
   communicateWithArduino,
   writeInFile,
   load,
-  calc
+  calc,
+  ping,
+  review,
 };

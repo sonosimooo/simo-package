@@ -1,5 +1,4 @@
-const simoPackage = require('simo-package');
+const sp = require('simo-package');
 
-sum = simoPackage.calc(1, 5);
-simoPackage.log(sum)
+
 
