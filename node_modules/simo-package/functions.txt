@@ -1,0 +1,156 @@
+FUNCTIONS
+
+Latest: 0.1.7 >> 
+- log("text", addParentheses[False / True]) => Print in console
+
+
+const { log } = require('simo-package');
+
+log("text", false);
+
+CONSOLE:
+
+text
+
+-------------
+
+const { log } = require('simo-package');
+
+log("text", true);
+
+CONSOLE:
+
+(text)
+
+Use
+
+- random(min, max) => Random Number
+
+Use
+
+const { log,random } = require('simo-package');
+
+const randomNumber = random(1, 10);
+log(randomNumber);
+
+CONSOLE
+
+(random numer)
+
+---------------
+
+- date => Return the current date.
+
+Use
+
+const { log,date } = require('simo-package');
+
+const currentDate = date();
+
+-------------------
+
+- hour => Return the current hour.
+
+Use
+
+const { log,hour } = require('simo-package');
+
+
+const currentHour = hour();
+
+---------------------
+
+- addFile (filename, folderpath) => Create a new file.
+
+Use: 
+
+const { log, addFile } = require('simo-package');
+
+const fileName = 'test.txt';
+const folderPath = 'folder/path'
+
+addFile(fileName, folderPath);
+
+----------------------
+
+- removeFile(fileName, folderPath) => Delete a file.
+
+Use: 
+
+const { log, removeFile } = require('simo-package');
+
+const fileName = 'test.txt';
+const folderPath = 'folder/path'
+
+removeFile(fileName, folderPath);
+
+----------------------------
+
+- renameFile(oldFileName, newFileName, folderPath) => Rename a file.
+
+Use:
+
+const { log, renameFile } = require('simo-package');
+
+const folderPath = 'c:/users/simo/desktop/test';
+
+renameFile('test.txt', 'modificated.txt', folderPath)
+
+------------------------------
+
+- communicateWithArduino('data', 'COM[n]')
+
+Use:
+
+const { communicateWithArduino } = require('simo-package');
+
+communicateWithArduino('Data', 'COM5');
+
+
+----------------------------------
+
+- writeInFile(filePath, data)
+
+Use:
+
+const { writeInFile } = require('simo-package');
+
+const filePath = 'test.txt';
+const data = 'Hello, world!';
+
+writeInFile(fileName, data);
+
+-----------------------------------
+
+- load(template)
+
+Use: 
+
+const { load } = require('simo-package');
+
+load('template1');
+
+TEMPLATES AVAIBLE:
+
+- template1: a simple log.
+
+--------------------------------------
+
+- calc(num1, num2)
+
+Use:
+
+const simoPackage = require('simo-package');
+
+sum = simoPackage.calc(1, 5);
+simoPackage.log(sum)
+
+----------------------------------------
+
+- ping() >> Ping of the host.
+
+No examples are avaible.
+
+-----------------------------------------
+
+- email(receiver, content)
