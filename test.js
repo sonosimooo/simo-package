@@ -1,6 +1,5 @@
-const { ping } = require('simo-package');
-ping ('google.com')
-  .then(latency => {
-    console.log(`Tempo di risposta per ${host}: ${latency} ms`);
-  })
-  .catch(error => console.error(error.message));
+const simoPackage = require('simo-package');
+
+sum = simoPackage.calc(1, 5);
+simoPackage.log(sum)
+
