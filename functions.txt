@@ -3,7 +3,7 @@ FUNCTIONS
 
 
 
-Latest: 0.1.7 >> 
+Latest: 0.2.2 >> 
 - log("text", addParentheses[False / True]) => Print in console
 
 
@@ -17,9 +17,9 @@ text
 
 -------------
 
-const { log } = require('simo-package');
+const sp = require('simo-package');
 
-log("text", true);
+sp.log("text", true);
 
 CONSOLE:
 
@@ -31,10 +31,10 @@ Use
 
 Use
 
-const { log,random } = require('simo-package');
+const sp = require('simo-package');
 
-const randomNumber = random(1, 10);
-log(randomNumber);
+const randomNumber = sp.random(1, 10);
+sp.log(randomNumber);
 
 CONSOLE
 
@@ -46,9 +46,9 @@ CONSOLE
 
 Use
 
-const { log,date } = require('simo-package');
+const sp = require('simo-package');
 
-const currentDate = date();
+const currentDate = sp.date();
 
 -------------------
 
@@ -56,10 +56,10 @@ const currentDate = date();
 
 Use
 
-const { log,hour } = require('simo-package');
+const sp = require('simo-package');
 
 
-const currentHour = hour();
+const currentHour = sp.hour();
 
 ---------------------
 
@@ -67,12 +67,12 @@ const currentHour = hour();
 
 Use: 
 
-const { log, addFile } = require('simo-package');
+const sp = require('simo-package');
 
 const fileName = 'test.txt';
 const folderPath = 'folder/path'
 
-addFile(fileName, folderPath);
+sp.addFile(fileName, folderPath);
 
 ----------------------
 
@@ -80,12 +80,12 @@ addFile(fileName, folderPath);
 
 Use: 
 
-const { log, removeFile } = require('simo-package');
+const sp = require('simo-package');
 
 const fileName = 'test.txt';
 const folderPath = 'folder/path'
 
-removeFile(fileName, folderPath);
+sp.removeFile(fileName, folderPath);
 
 ----------------------------
 
@@ -93,11 +93,11 @@ removeFile(fileName, folderPath);
 
 Use:
 
-const { log, renameFile } = require('simo-package');
+const sp = require('simo-package');
 
 const folderPath = 'c:/users/simo/desktop/test';
 
-renameFile('test.txt', 'modificated.txt', folderPath)
+sp.renameFile('test.txt', 'modificated.txt', folderPath)
 
 ------------------------------
 
@@ -105,9 +105,9 @@ renameFile('test.txt', 'modificated.txt', folderPath)
 
 Use:
 
-const { communicateWithArduino } = require('simo-package');
+const sp = require('simo-package');
 
-communicateWithArduino('Data', 'COM5');
+sp.communicateWithArduino('Data', 'COM5');
 
 
 ----------------------------------
@@ -116,12 +116,12 @@ communicateWithArduino('Data', 'COM5');
 
 Use:
 
-const { writeInFile } = require('simo-package');
+const sp = require('simo-package');
 
 const filePath = 'test.txt';
 const data = 'Hello, world!';
 
-writeInFile(fileName, data);
+sp.writeInFile(fileName, data);
 
 -----------------------------------
 
@@ -129,9 +129,9 @@ writeInFile(fileName, data);
 
 Use: 
 
-const { load } = require('simo-package');
+const sp = require('simo-package');
 
-load('template1');
+sp.load('template1');
 
 TEMPLATES AVAIBLE:
 
@@ -143,17 +143,27 @@ TEMPLATES AVAIBLE:
 
 Use:
 
-const simoPackage = require('simo-package');
+const sp = require('simo-package');
 
-sum = simoPackage.calc(1, 5);
-simoPackage.log(sum)
+sum = sp.calc(1, 5);
+sp.log(sum)
 
 ----------------------------------------
 
-- ping() >> Ping of the host.
+- ping(host) >> Ping of the host.
 
-No examples are avaible.
+Use:
+
+const sp = require('simo-package');
+
+sp.ping('google.com')
 
 -----------------------------------------
 
-- email(receiver, content)
+- open(filePath) >> Open a file.
+
+Use:
+
+const sp = require('simo-package');
+
+sp.open('file/path');
