@@ -4,6 +4,7 @@ const path = require('path');
 const SerialPort = require('serialport'); 
 const ping = require('ping');
 const nodemailer = require('nodemailer');
+const { exec } = require('child_process');
 
 function log(text, addParentheses = false) {
   if (addParentheses) {
@@ -37,13 +38,12 @@ function addFile(fileName, folderPath) {
   
   // Verifica se il file esiste già
   if (fs.existsSync(filePath)) {
-    throw new Error(`Il file ${fileName} esiste già nella cartella ${folderPath}`);
+    throw new Error(`The file ${fileName} alredy exist in ${folderPath}`);
   }
 
   // Crea il file vuoto nella cartella specificata
   fs.writeFileSync(filePath, '');
 
-  return `Il file ${fileName} è stato aggiunto alla cartella ${folderPath}`;
 }
 
 
@@ -79,7 +79,6 @@ function communicateWithArduino(dataToSend, serialPort) {
   const port = new SerialPort(serialPort, { baudRate: 9600 }); // Utilizza la porta seriale specificata dall'utente
 
   port.on('open', function() {
-    console.log('Communication with Arduino established');
     port.write(dataToSend); // Invia dati ad Arduino
   });
 
@@ -92,9 +91,7 @@ function writeInFile(filePath, data) {
   fs.appendFile(filePath, data + '\n', function (err) {
     if (err) {
       console.error('Error writing to file:', err);
-    } else {
-      console.log('Data written to file successfully');
-    }
+    } 
   });
 }
 
@@ -104,14 +101,10 @@ function load(templateName) {
   // Determina il codice del template in base al nome
   if (templateName === 'template1') {
     templateContent = `
-      // Codice del template 1
-      console.log('Questo è il template 1');
+      const sp = require('simo.package');
+      sp.log('This is the template 1');
     `;
-  } else if (templateName === 'template2') {
-    templateContent = `
-      // Codice del template 2
-      console.log('Questo è il template 2');
-    `;
+  }
   }
 
   // Crea un nuovo file JavaScript sul desktop
@@ -121,12 +114,9 @@ function load(templateName) {
   // Scrivi il contenuto del template nel nuovo file JavaScript
   fs.writeFileSync(newFilePath, templateContent);
 
-  return `File "${templateName}.js" creato sul desktop`;
-}
-
 function calc(num1, num2) {
   if (typeof num1 !== 'number' || typeof num2 !== 'number') {
-    throw new Error('Entrambi gli argomenti devono essere numeri');
+    throw new Error('The argoments must be numbers!');
   }
   
   return num1 + num2;
@@ -136,16 +126,32 @@ async function ping(host) {
   try {
     const response = await ping.promise.probe(host);
     if (response.alive) {
-      return `Tempo di risposta da ${host}: ${response.time} ms`;
+      return `Ping for ${host}: ${response.time} ms`;
     } else {
-      return `Host ${host} non raggiungibile`;
+      return `Host ${host} not found!`;
     }
   } catch (error) {
-    return `Errore durante il ping a ${host}: ${error.message}`;
+    return `Error to ${host}: ${error.message}`;
   }
 }
 
+function open(filePath) {
+  // Ottieni il percorso completo del file
+  const fullPath = path.resolve(filePath);
 
+  // Utilizza il comando "start" di Windows per aprire il file
+  exec(`start "" "${fullPath}"`, (error, stdout, stderr) => {
+      if (error) {
+          console.error(`Error in the opening of the file: ${error.message}`);
+          return;
+      }
+      if (stderr) {
+          console.error(`Error in the opening of the file: ${stderr}`);
+          return;
+      }
+      console.log(`File opened: ${filePath}`);
+  });
+}
 
 
 
@@ -164,5 +170,6 @@ module.exports = {
   writeInFile,
   load,
   calc,
-  ping
+  ping,
+  open,
 };
