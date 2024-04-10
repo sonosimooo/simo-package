@@ -54,6 +54,10 @@ load -> Load a specific template created by yourself
 
 ping -> Get a host latency directly from your workspace
 
+open -> Allows you to open a file or program by path or file name
+
+review -> Write a review to our package from 1 to 10
+
 -------------------------
 
 ## Advancements
